@@ -95,3 +95,27 @@ spplot(FrancePartie, "z", col.regions=mycols,
        main=list(label="Ile-de-France",cex=1.8))
 
 
+######################################################
+## Test Moran I
+install.packages("ape")
+library(ape)
+occ.distsA <- as.matrix(dist(cbind(x0$TauxBac, x0$TauxChomage, x0$Salaire, x0$TauxOuvrier, x0$TauxClub)))
+z <- zA
+occ.distsB <- as.matrix(dist(cbind(x0$TauxBac, x0$TauxChomage, x0$Salaire, x0$TauxOuvrier, x0$TauxClub, x0$yLag)))
+z <- zB
+occ.distsC <- as.matrix(dist(cbind(x0$TauxBac, x0$TauxChomage, x0$Salaire, x0$TauxOuvrier,
+                                   x0$ylab, x0$TauxClub,
+                                   x0$TauxBacLag, x0$TauxChomageLag, x0$SalaireLag,x0$TauxOuvrierLag,
+                                   x0$TauxClubLag)))
+z <- zC
+
+MoranTest <- function(z, occ.dists){
+  occ.dists; dim(occ.dists)
+  occ.dists.inv <- 1/occ.dists
+  diag(occ.dists.inv) <- 0
+  occ.dists.inv[1:5, 1:5]
+  return(Moran.I(z, occ.dists.inv))
+}
+MoranTest(zA, occ.distsA)
+MoranTest(zB, occ.distsB)
+MoranTest(zC, occ.distsC)
