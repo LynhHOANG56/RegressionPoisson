@@ -1,4 +1,4 @@
-Regression sur les données d'occurrence de déclarations en ALD à MDS
+Regression sur les données d'occurrence de déclarations en ALD par des sociétaires de la MdS. 
 - Data: dataset.csv, data_lagged.csv
 - Les cartes de Modèle C: ModelC_France.pdf, ModelC_Ile_de_France.pdf 
 
