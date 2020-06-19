@@ -100,14 +100,11 @@ spplot(FrancePartie, "z", col.regions=mycols,
 install.packages("ape")
 library(ape)
 occ.distsA <- as.matrix(dist(cbind(x0$TauxBac, x0$TauxChomage, x0$Salaire, x0$TauxOuvrier, x0$TauxClub)))
-z <- zA
 occ.distsB <- as.matrix(dist(cbind(x0$TauxBac, x0$TauxChomage, x0$Salaire, x0$TauxOuvrier, x0$TauxClub, x0$yLag)))
-z <- zB
 occ.distsC <- as.matrix(dist(cbind(x0$TauxBac, x0$TauxChomage, x0$Salaire, x0$TauxOuvrier,
                                    x0$ylab, x0$TauxClub,
                                    x0$TauxBacLag, x0$TauxChomageLag, x0$SalaireLag,x0$TauxOuvrierLag,
                                    x0$TauxClubLag)))
-z <- zC
 
 MoranTest <- function(z, occ.dists){
   occ.dists; dim(occ.dists)
